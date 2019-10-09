@@ -2,39 +2,30 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Timer extends Component {
-  
+
+class ToggleClick extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      time : props.start
+      toggleStatus : true
     }
-  }
-  
-  // Lifecycle
-  componentDidMount() {
-    this.addInterval = setInterval( () => {
-      this.increase()
-    }, 1000);
+    // untuk menggunakan this didalam event harus dibuat ini
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  componentWillUnmount() {
-    clearInterval(this.addInterval)
-  }
-
-  increase() {
-    if (this.state.time == "20") {
-      alert('sudah sampai 20')
-    }
-    // parameter 1 = state sebelumnya
-    // parameter 2 = properti kalo dibutuhkan
-    this.setState( (state, props) => ({
-      time : parseInt(state.time) + 1
-    }))
+  // event click
+  handleClick() {
+    this.setState(state => ({
+      toggleStatus: !state.toggleStatus
+    }));
   }
 
   render() {
-    return <div>Timer : {this.state.time}</div>;
+    return(
+    <a href="#" onClick={this.handleClick()}>
+      {this.state.toggleStatus ? 'MENYALA' : 'MATI'}
+    </a>
+    );
   }
 }
 
@@ -44,7 +35,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Timer start="0"/>
+          <ToggleClick />
         </header>
       </div>
     );  
