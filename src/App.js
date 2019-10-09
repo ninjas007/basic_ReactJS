@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ComponentForm from './Component/ComponentForm.jsx';
 
 function Salam(props) {
   return <h1> Halo {props.name} - Usia {props.age}</h1>
@@ -76,7 +77,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           {/* <Salam name="Tilis Tiadi" age="25" /> */}
           {/* <Timer start="0"/> */}
-          <ToggleClick />
+          {/* <ToggleClick /> */}
+          <ComponentForm />
         </header>
       </div>
     );  
