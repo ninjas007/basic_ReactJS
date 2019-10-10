@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ComponentForm from './Component/ComponentForm.jsx';
+import ComponentApi from './Component/ComponentApi.jsx';
 
 function Salam(props) {
   return <h1> Halo {props.name} - Usia {props.age}</h1>
@@ -79,6 +80,7 @@ class App extends Component {
           {/* <Timer start="0"/> */}
           {/* <ToggleClick /> */}
           <ComponentForm />
+          <ComponentApi />
         </header>
       </div>
     );  
